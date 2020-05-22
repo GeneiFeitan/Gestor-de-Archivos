@@ -1,0 +1,111 @@
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+a {
+  color: #5D6975;
+  text-decoration: underline;
+}
+
+body {
+  position: relative;
+  width: 22cm;  
+  height: 29.7cm; 
+  margin: 0 auto; 
+  color: #001028;
+  background: #FFFFFF; 
+  font-family: Century;
+}
+
+header {
+  padding: 10px 0;
+  margin-bottom: 30px;
+}
+
+
+#logo {
+  text-align: left;
+  margin-bottom: 5px;
+}
+
+#logo img {
+  width: 90px;
+}
+
+h1 {
+  border-top: 1px solid  #5D6975;
+  border-bottom: 1px solid  #5D6975;
+  color: #0F0F0F;
+  font-size: 1.5em;
+  line-height: 1.4em;
+  font-weight: normal;
+  text-align: center;
+  margin: 0 0 10px 0;
+  background: url(../img/dimension.png);
+}
+
+#project {
+  float: right;
+}
+
+#project span {
+  color: #5D6975;
+  text-align: right;
+  width: 52px;
+  margin-right:10px;
+  display: inline-block;
+  font-size: 0.8em;
+}
+
+#company {
+  float: right;
+  text-align: right;
+}
+
+#project div,
+#company div {
+       
+}
+
+.mainP {
+  color: #0F0F0F;
+  font-size: 14px;
+padding: 0px;
+}
+
+.flex-container{
+  display: flex;
+}
+
+
+.flex-container{
+  margin: 10px;
+  padding: 20px;
+  
+}
+
+td, th{
+  text-align: center;
+  margin: 10px;
+  padding: 5px;
+
+}
+
+
+
+
+
+table{
+  width: 100%;
+}
+
+p{
+  
+  margin: 9px;
+  padding: 5px;
+}
+
+
+

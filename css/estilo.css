@@ -1,0 +1,63 @@
+*{
+  padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+header{
+    padding: 0;
+    margin-bottom: 30px;
+}
+#navbarSupportedContent{
+    margin-left: 20px
+}
+
+.registro{
+    padding: 10px;
+}
+
+#Oculto{
+display: none;
+}
+
+img#Carrusel{
+    width: 50px;
+}
+
+.contenedor{
+    width: 98%;
+    margin: auto;
+}
+
+footer .contenedor{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-bottom: 25px;
+    
+}
+
+.copy{
+    font-style: 20px;
+}
+.sociales{
+    width: 100%;
+    text-align: center;
+    font-size: 28px;
+}
+
+.sociales a{
+    color: #333;
+    text-decoration: none;
+}
+@media(min-width:760px){
+    .sociales{
+        width: auto;
+    }
+    footer .contenedor{
+        justify-content: space-between;
+    }
+    
+}
+

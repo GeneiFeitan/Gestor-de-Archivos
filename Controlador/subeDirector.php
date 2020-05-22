@@ -1,0 +1,97 @@
+<?php 
+
+require('../Modelo/archivo.php');
+
+include('../Modelo/login.php');
+include('../Modelo/logout.php');
+
+
+
+session_start();
+$nombreUsuario= $_SESSION['nombre_usuario'];//VARIABLE DE SESIÓN NOMBRE DE USUARIO
+$idUsuario= $_SESSION['idUsuario'];//VARIABLE DE SESIÓN Id DE USUARIO
+$idArea= $_SESSION['idArea'];//VARIABLE DE SESIÓN AREA DE TRABAJO
+
+
+$archivo=new Archivo();
+$nombre=$_FILES['archivo']['name'];
+$guardado=$_FILES['archivo']['tmp_name'];
+
+$archivo->descripcion=$_POST['comentarios'];
+$archivo->nombre=$_FILES['archivo']['name'];
+$archivo->idUsuario=$idUsuario;
+$archivo->idArea=1;
+$archivo->ruta='../GestorArchivos/archivos';
+
+
+if($_POST['inputArea']=="Anaplasma") {
+	$archivo->idArea=1;
+}
+
+if($_POST['inputArea']=="Artropodologia") {
+	$archivo->idArea=2;
+}
+
+if($_POST['inputArea']=="Babesia") {
+	$archivo->idArea=3;
+}
+
+if($_POST['inputArea']=="Helmintologia") {
+	$archivo->idArea=4;
+}
+if($_POST['inputArea']=="Recursos Humanos") {
+	$archivo->idArea=5;
+}
+if($_POST['inputArea']=="Sistemas") {
+	$archivo->idArea=6;
+}
+if($_POST['inputArea']=="Materiales") {
+	$archivo->idArea=7;
+}
+if($_POST['inputArea']=="Financieros") {
+	$archivo->idArea=8;
+}
+if($_POST['inputArea']=="Todos") {
+	$archivo->idArea=9;
+}
+
+
+
+
+
+//Funcion que cre la carpeta archivos en caso de no existir y ahi guarda el archivo
+if(!file_exists('archivos')){
+	//mkdir Crea el directorio
+	mkdir('archivos',0777,true);
+	if(file_exists('archivos')){
+		if(move_uploaded_file($guardado, 'archivos/'.$nombre)){
+			//Manda a insertar los datos del archivo en la base de datos
+			$archivo->insert();
+			echo"<script>
+                alert('Archivo guardado Correctamente');
+                window.location= '../Vista/SubirArchivo.php'
+    </script>";
+		}else{
+			echo"<script>
+                alert('No se pudo Guardar el Archivo');
+                window.location= '../Vista/SubirArchivo.php'
+    </script>";
+		}
+	}
+	//En caso de que exista la carpeta archivos guarda el archivo dentro
+}else{
+	if(move_uploaded_file($guardado, 'archivos/'.$nombre)){
+		$archivo->insert();
+		echo"<script>
+                alert('Archivo guardado Correctamente');
+                window.location= '../Vista/SubirArchivo.php'
+    </script>";
+	}else{
+		echo"<script>
+                alert('No se pudo Guardar el Archivo');
+                window.location= '../Vista/SubirArchivo.php'
+    </script>";
+	}
+}
+
+?>
